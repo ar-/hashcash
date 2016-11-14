@@ -40,6 +40,15 @@ test=`expr $test + 1`
 
 ######################################################################
 
+# this test is the first one that need the stamps file
+cat > stamps <<EOF
+0:050403:space@foo.com:1f0986777f16f66a53241ec3
+0:030404:fax@foo.com:23d5ea11c43287d58ea6a63f
+0:040402:adam+bar@foo.com:0ace5ad5254b4e401036b5f0
+0:040402:jack+bar@foo.com:be45eb4e586a3e08cf7c95c4
+0:040404:fred+xyz@foo.com:20056ff4e877027ef8ba55eb
+EOF
+
 echo -n "test $test (-b10 partial) "
 $hashcash -q -b10 < stamps
 [ $? -eq 2 ] && echo ok || echo fail
@@ -97,14 +106,6 @@ test=`expr $test + 1`
 ######################################################################
 
 echo -n "test $test (-w) "
-cat > stamps <<EOF
-0:050403:space@foo.com:1f0986777f16f66a53241ec3
-0:030404:fax@foo.com:23d5ea11c43287d58ea6a63f
-0:040402:adam+bar@foo.com:0ace5ad5254b4e401036b5f0
-0:040402:jack+bar@foo.com:be45eb4e586a3e08cf7c95c4
-0:040404:fred+xyz@foo.com:20056ff4e877027ef8ba55eb
-EOF
-
 cat > out.$test <<EOF
 5
 5
