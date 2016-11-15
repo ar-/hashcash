@@ -1,20 +1,18 @@
 package com.ardash.hashcash.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.security.NoSuchAlgorithmException;
 
 import org.junit.Test;
 
-import com.nettgryppa.security.HashCash;
-
 public class HashCashTest {
 
 	@Test
-	public void test() throws NoSuchAlgorithmException {
+	public void test() throws NoSuchAlgorithmException, InterruptedException {
 		//HashCash hc = new HashCash("")
-		HashCash hc = HashCash.mintCash("foo@bar", 20);
-		System.out.println(hc);
+		String h =de.sg.hashcash.HashCash.genRawToken("aa", 20, 1);
+		System.out.println(h);
 //		hc.estimateTime(value)
 		fail("Not yet implemented");
 	}
